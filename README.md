@@ -1,6 +1,6 @@
 # Corpus Poisoning Attack for Dense Retrievers
 
-This is the repository for our EMNLP2023 paper [Poisoning Retrieval Corpora by Injecting Adversarial Passages]().
+This is the repository for our EMNLP2023 paper [Poisoning Retrieval Corpora by Injecting Adversarial Passages](https://arxiv.org/abs/2310.19156).
 
 We will release our code soon!
 

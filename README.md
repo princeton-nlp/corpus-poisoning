@@ -22,23 +22,23 @@ We propose the *corpus poisoning* attack for dense retrieval models, where a mal
 
 ### Create a conda environment
 Our code is based on python 3.7. We suggest you create a conda environment for this project to avoid conflicts with others.
-```
+```bash
 conda create -n corpus_poison python=3.7
 ```
 Then, you can activate the conda environment:
-```
+```bash
 conda activate corpus_poison
 ```
 
 ### Requirements and dependencies
 Please install all the dependency packages using the following command:
-```
+```bash
 pip install -r requirements.txt
 ```
 
 #### Download source code of Contriever
 In order to run Contriever model, please clone the Contriever source code and place it into the `src` folder:
-```
+```bash
 cd src
 git clone https://github.com/facebookresearch/contriever.git
 ```
@@ -49,7 +49,7 @@ You do not need to download datasets. When running our code, the datasets will b
 ## Attack: Corpus poisoning
 
 Our attack generates multiple adversarial passages with k-means clustering given a retrieval model and a dataset (training queries). Here is the command to attack the Contriever model on the NQ training set with $k=10$ adversarial passages.
-```
+```bash
 MODEL=contriever
 DATASET=nq-train
 OUTPUT_PATH=results/advp
@@ -80,7 +80,7 @@ Arguments:
 This will perform the attack $k$ times and generate $k$ adversarial passages, each of which will be saved as a `.json` file in `results/advp`.
 
 The attack process may be time-comsuming. However, we can attack different k-means clusters in parallel. If you are using slurm, we provide a script (`scripts/attack_poison.sh`) to launch the attack for all the clusters at the same time. For example, you can launch the above attack on slurm using:
-```
+```bash
 bash scripts/attack_poison.sh contriever nq-train 10
 ```
 
@@ -91,7 +91,7 @@ We first perform the original retrieval evaluation on BEIR and save the retrieva
 
 ### BEIR evaluation
 We first save the retrieval results on BEIR. An example of the evaluation command is as follows:
-```
+```bash
 MODEL=contriever
 DATASET=fiqa
 
@@ -108,7 +108,7 @@ bash scripts/evaluate_beir.sh
 ### Adversarial attack evaluation
 Then, we evaluate the attack based on the beir retrieval results (saved in `results/beir_results`) and the generated adversarial passages (saved in `results/advp`).
 
-```
+```bash
 EVAL_MODEL=contriever
 EVAL_DATASET=fiqa
 ATTK_MODEL=contriever

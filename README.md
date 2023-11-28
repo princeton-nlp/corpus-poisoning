@@ -4,7 +4,7 @@ This is the repository for our EMNLP2023 paper [Poisoning Retrieval Corpora by I
 
 We propose the *corpus poisoning* attack for dense retrieval models, where a malicious user generates and injects a small fraction of adversarial passages to a retrieval corpus, with the aim of fooling retrieval systems into returning them among the top retrieved results.
 
-<img src="figures/overview.png" width="800"/>
+<img src="figures/overview.png" width="500"/>
 
 ## Quick links
 * [Setup](#setup)
